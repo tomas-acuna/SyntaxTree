@@ -1,0 +1,42 @@
+# here you write all the rules and then you write the sentence you want to parse on the very last line
+# comments can be written like this
+
+NP->D \=N
+NP->\=N
+
+\=N->A \=N
+\=N->\=N PP
+\=N->\=N CP
+\=N->N
+
+CP->C S
+
+S->NP VP
+S->CP VP
+
+PP->P NP
+PP->P S
+
+VP->VP PP
+VP->VP CP
+VP->V NP
+VP->Aux VP
+VP->V
+
+\=N->\=N and \=N
+NP->NP and NP
+VP->VP and VP
+S->S and S
+CP->CP and CP
+PP->PP and PP
+
+D->the
+A->hungry
+N->elf
+V->ate
+D->my
+N->family
+P->with
+N->glee
+
+the hungry elf ate my family with glee
