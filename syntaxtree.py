@@ -119,7 +119,9 @@ def is_not_empty(string):
 
 def string_to_rules_and_sling(string):
     lines = list(filter(is_not_empty, string.split("\n")))
-    rules = mapa(string_to_rule, lines[:len(lines) - 1])
+    rules = []
+    for rule in mapa(string_to_rule, lines[:len(lines) - 1]):
+        add_if_original(rules, rule)
     sling = string_to_sling(lines[len(lines) - 1])
     return [rules, sling]
 
