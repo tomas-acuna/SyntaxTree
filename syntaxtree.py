@@ -82,12 +82,13 @@ def get_end_rewrites(sling, rules):
         current_rewrites = mapa(simplify, current_rewrites)
         currenter_rewrites = []
         for current_rewrite in current_rewrites:
-            if len(current_rewrite) == 1:
-                add_if_original(end_rewrites, current_rewrite[0])
             new_rewrites = get_rewrites(current_rewrite, rules)
             if new_rewrites:
                 for new_rewrite in new_rewrites:
                     add_if_original(currenter_rewrites, new_rewrite)
+            else:
+                if len(current_rewrite) == 1:
+                    add_if_original(end_rewrites, current_rewrite[0])
         current_rewrites = currenter_rewrites
     return end_rewrites
 
